@@ -1,30 +1,47 @@
-<h1>Reunion Registration Form</h1>
+<mat-toolbar>
+    <span>Reunion Registration Form</span>
+</mat-toolbar>
 
-<form #rsvpForm="ngForm" (ngSubmit)="process(rsvpForm)">
-    <label for="name">Name</label>
-    <input type="text" name="name" id="name" ngModel>
+<form #rsvpForm="ngForm" (ngSubmit)="process(rsvpForm)" fxLayout="column row" fxLayoutGap="10px">
+    <label for="name">
+        <span>Name: </span>
+        <input type="text" name="name" id="name" ngModel>
+    </label>
+    <label for="guest">
+        <span>Guest: </span>
+        <input type="number" name="guest" id="guest" step="1" min="0" max="3" ngModel>
+    </label>
 
-    <label for="guest">Guest</label>
-    <input type="number" name="guest" id="guest" step="1" min="0" max="3" ngModel>
-    
-    <label for="phone">Name</label> 
+
+    <label for="phone">Phone</label>
     <input type="text" name="phone" id="phone" ngModel>
 
     <label for="date">Select Day</label>
     <input type="date" name="date" id="date" ngModel>
 
     <label for="order">Pre-Order</label>
-    <input type="radio" name="order" id="order" value="yes" checked ngModel>Yes
-    <input type="radio" name="order" value="no" ngModel>No
+    <label class="radio">
+        <input type="radio" name="order" id="order" value="yes" ngModel checked>Yes
+    </label>
+    <label class="radio">
+        <input type="radio" name="order" id="order" value="no" ngModel>No
+    </label>
+
 
     <label for="allergies">Allergies</label>
-    <input type="checkbox" name="nuts" id="allergies" ngModel>Nuts
-    <input type="checkbox" name="seafood" ngModel>Seafood
-    <input type="checkbox" name="diary" ngModel>Diary Products
+    <label>
+        <input type="checkbox" name="nuts" id="allergies" ngModel>Nuts
+    </label>
+    <label>
+        <input type="checkbox" name="seafood" ngModel>Seafood
+    </label>
+    <label>
+        <input type="checkbox" name="diary" ngModel>Diary Products
+    </label>
 
     <label for="comments">Comments</label>
     <textarea name="comments" id="comments" cols="30" rows="10" ngModel></textarea>
 
-    <button>Clear</button>
-    <button>Register</button>
+    <button type="reset">Clear</button>
+    <button type="submit">Register</button>
 </form>
