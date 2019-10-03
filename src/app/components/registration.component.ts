@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm, NgModel } from '@angular/forms';
 
 @Component({
   selector: 'app-registration',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegistrationComponent implements OnInit {
 
+  //Element binding technique similar to @IBOutlet
+  @ViewChild('firstName', { static: false })
+  firstName: NgModel;
+
   constructor() { }
 
   ngOnInit() {
   }
 
+  processForm(form: NgForm) {
+    console.log("processForm: ", form.value);
+    form.reset();
+  }
 }

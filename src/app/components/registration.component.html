@@ -1,1 +1,73 @@
-<p>registration works!</p>
+<h1>High School Reunion Regisration Form</h1>
+
+<form #regForm="ngForm" (ngSubmit)="processForm(regForm)">
+    <div>
+        <label for="fullname">Name</label>
+        <div>
+            <input type="text" id="fullname" name="firstName" ngModel #firstName="ngModel">
+            <span>First</span>
+        </div>
+        <div>
+            <input type="text" id="fullname" name="lastName" ngModel>
+            <span>Last</span>
+        </div>
+    </div>
+
+    <br>
+
+    <div>
+        <label for="guestname">Spouse or Guest Name</label>
+        <div>
+            <input type="text" id="guestname" name="firstName" ngModel>
+            <span>First</span>
+        </div>
+        <div>
+            <input type="text" id="guestname" name="lastName" ngModel>
+            <span>Last</span>
+        </div>
+    </div>
+
+    <br>
+
+    <div>
+        <label for="phone">Phone Number</label>
+        <div>
+            <input type="tel" id="phone" name="countryCode" ngModel>
+            <span>###</span>
+        </div>
+        <span>-</span>
+        <div>
+            <input type="tel" id="phone" name="areaCode" ngModel>
+            <span>###</span>
+        </div>
+        <span>-</span>
+        <div>
+            <input type="tel" id="phone" name="phoneNumber" ngModel>
+            <span>###</span>
+        </div>
+    </div>
+
+    <br>
+
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" ngModel required>
+
+    <div>
+        <label for="cookout">Which events will you be attending?</label>
+        <input type="checkbox" id="attending" name="cookout" value="cookout" ngModel>Friday night cookout
+        <input type="checkbox" id="attending-bfast" name="breakfast" value="breakfast" ngModel>Saturday breakfast
+        <input type="checkbox" id="attending-lunch" name="lunch" value="lunch" ngModel>Saturday lunch
+        <input type="checkbox" id="attending-dinner" name="dinner" value="dinner" ngModel>Saturday formal dinner
+    </div>
+
+    <div>
+        <label for="preorder">Would you like to pre-order a reunion DVD ($19.95)?</label>
+        <input type="radio" id="preorder" name="preorder" value="Yes" checked>Yes
+        <input type="radio" id="preorder" name="preorder" value="No">No
+    </div>
+
+    <label for="comments">Comments of Questions</label>
+    <textarea name="comments" id="comments" cols="30" rows="10" ngModel></textarea>
+
+    <button type="submit">Submit</button>
+</form>
