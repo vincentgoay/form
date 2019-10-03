@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm, NgModel } from '@angular/forms';
+import { MaterialModule } from '..//material.module'
 
 @Component({
   selector: 'app-registration',

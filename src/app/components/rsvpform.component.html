@@ -1,0 +1,32 @@
+<h1>Reunion Registration Form</h1>
+
+<form #rsvpForm="ngForm">
+    <label for="name">Name</label>
+    <input type="text" name="name" id="name">
+
+    <label for="guest">Guest</label>
+    <input type="number" name="guest" id="guest" step="1" min="0" max="3">
+    
+    <label for="phone">Name</label>
+    <input type="text" name="phone" id="phone">
+
+    <label for="date">Select Day</label>
+    <input type="date" name="date" id="date">
+
+    <label for="order">Pre-Order</label>
+    <input type="radio" name="order" id="order" value="yes" checked>Yes
+    <input type="radio" name="order" value="no">No
+
+    <label for="allergies">Allergies</label>
+    <input type="checkbox" name="nuts" id="allergies">Nuts
+    <input type="checkbox" name="seafood">Seafood
+    <input type="checkbox" name="diary">Diary Products
+
+    <label for="comments">Comments</label>
+    <textarea name="comments" id="comments" cols="30" rows="10"></textarea>
+
+    <button>Clear</button>
+    <button>Register</button>
+    
+    
+</form>
