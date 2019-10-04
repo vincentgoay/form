@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { RSVP } from '../models'
 
 @Component({
   selector: 'app-rsvpform',
@@ -8,12 +9,28 @@ import { NgForm } from '@angular/forms';
 })
 export class RsvpformComponent implements OnInit {
 
+  startDate = new Date(2019, 10, 1);
+
   constructor() { }
 
   ngOnInit() {
   }
 
   process(form: NgForm) {
-    console.log("Submitted Form: ", form.value);
+    const values = form.value;
+    console.log("Submitted Form: ", values);
+
+    //Parse form values into RSVP object
+    const rsvp: RSVP = {
+      name: values.name,
+      guest: values.guest,
+      phone: values.phone,
+      date: (new Date(values.date)).getTime(),
+      vegetarian: values.vegetarian == "yes",
+      allergies: [],
+      comments: values.comments
+    };
+
+    console.log(rsvp);
   }
 }

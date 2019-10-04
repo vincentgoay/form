@@ -1,25 +1,29 @@
-<mat-toolbar>
-    <span>Reunion Registration Form</span>
+<mat-toolbar color="primary">
+    <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="2vw">
+        <img src="assets/rsvp.png" style="width: auto; height: 5vh;" alt="">
+        <span>Reunion Registration Form</span>
+    </div>
 </mat-toolbar>
 
 <form #rsvpForm="ngForm" (ngSubmit)="process(rsvpForm)" fxLayout="column row" fxLayoutGap="10px">
-    <label for="name">
-        <span>Name: </span>
-        <input type="text" name="name" id="name" ngModel>
-    </label>
-    <label for="guest">
-        <span>Guest: </span>
-        <input type="number" name="guest" id="guest" step="1" min="0" max="3" ngModel>
-    </label>
+    <mat-form-field>
+        <input type="text" name="name" placeholder="Name" id="name" ngModel matInput>
+    </mat-form-field>
 
+    <mat-form-field>
+        <input type="number" name="guest" id="guest" placeholder="No. of guest" step="1" min="0" max="3" ngModel
+            matInput>
+    </mat-form-field>
 
-    <label for="phone">Phone</label>
-    <input type="text" name="phone" id="phone" ngModel>
+    <mat-form-field>
+        <input type="text" name="phone" id="phone" placeholder="Phone Number" ngModel matInput>
+    </mat-form-field>
 
-    <label for="date">Select Day</label>
-    <input type="date" name="date" id="date" ngModel>
+    <mat-form-field>
+        <input type="date" name="date" id="date" placeholder="Select Date" ngModel matInput>
+    </mat-form-field>
 
-    <label for="order">Pre-Order</label>
+    <label for="order">Vegetarian</label>
     <label class="radio">
         <input type="radio" name="order" id="order" value="yes" ngModel checked>Yes
     </label>
