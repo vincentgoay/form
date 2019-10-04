@@ -1,3 +1,7 @@
 form {
     padding: 5vw;
 }
+
+.fix-width-field {
+    width: 60vw;
+}

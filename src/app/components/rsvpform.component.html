@@ -1,51 +1,59 @@
-<mat-toolbar color="primary">
+<mat-toolbar color="primary" fxLayout="row" fxLayoutAlign="space-between center">
     <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="2vw">
         <img src="assets/rsvp.png" style="width: auto; height: 5vh;" alt="">
         <span>Reunion Registration Form</span>
     </div>
+    <button mat-button matSuffix mat-icon-button [disabled]="!shareable" (click)="shareTheJoy()">
+        <mat-icon>share</mat-icon>
+    </button>
+
 </mat-toolbar>
 
 <form #rsvpForm="ngForm" (ngSubmit)="process(rsvpForm)" fxLayout="column row" fxLayoutGap="10px">
+    <mat-form-field class="fix-width-field">
+        <input type="text" name="name" placeholder="Name" id="name" ngModel matInput required>
+        <mat-icon matSuffix>account_circle</mat-icon>
+    </mat-form-field>
+
+    <h3>Guest</h3>
+    <mat-slider min="0" max="3" step="1" value="0" ngModel name="guest" id="guest" thumbLabel tickInterval="1">
+    </mat-slider>
+
     <mat-form-field>
-        <input type="text" name="name" placeholder="Name" id="name" ngModel matInput>
+        <span matPrefix>+65 &nbsp;</span>
+        <input type="text" name="phone" id="phone" placeholder="Phone Number" ngModel matInput required>
+        <mat-icon matSuffix>phone</mat-icon>
     </mat-form-field>
 
     <mat-form-field>
-        <input type="number" name="guest" id="guest" placeholder="No. of guest" step="1" min="0" max="3" ngModel
-            matInput>
+        <input ngModel matInput [matDatepicker]="picker" name="date" id="date" placeholder="Choose a date">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
 
-    <mat-form-field>
-        <input type="text" name="phone" id="phone" placeholder="Phone Number" ngModel matInput>
-    </mat-form-field>
-
-    <mat-form-field>
-        <input type="date" name="date" id="date" placeholder="Select Date" ngModel matInput>
-    </mat-form-field>
-
-    <label for="order">Vegetarian</label>
-    <label class="radio">
-        <input type="radio" name="order" id="order" value="yes" ngModel checked>Yes
-    </label>
-    <label class="radio">
-        <input type="radio" name="order" id="order" value="no" ngModel>No
-    </label>
+    <h3 for="vegetarian-radio-group">Are you a vegetarian?</h3>
+    <mat-radio-group name="vegetarian" ngModel labelPosition="after" fxLayout="column" fxLayoutGap="10px">
+        <mat-radio-button value="yes">Yes</mat-radio-button>
+        <mat-radio-button value="no">No</mat-radio-button>
+    </mat-radio-group>
 
 
-    <label for="allergies">Allergies</label>
-    <label>
-        <input type="checkbox" name="nuts" id="allergies" ngModel>Nuts
-    </label>
-    <label>
-        <input type="checkbox" name="seafood" ngModel>Seafood
-    </label>
-    <label>
-        <input type="checkbox" name="diary" ngModel>Diary Products
-    </label>
+    <h3 for="allergies">Allergies</h3>
+    <div fxLayout="row" fxLayoutGap="3vw">
+        <mat-checkbox labelPosition="after" name="allergies-nuts" id=nuts ngModel>Nuts</mat-checkbox>
+        <mat-checkbox labelPosition="after" name="allergies-seafood" id=seafood ngModel>Seafood</mat-checkbox>
+        <mat-checkbox labelPosition="after" name="allergies-diary" id=diary_product ngModel>Diary Products
+        </mat-checkbox>
+    </div>
 
     <label for="comments">Comments</label>
-    <textarea name="comments" id="comments" cols="30" rows="10" ngModel></textarea>
+    <mat-form-field>
+        <textarea name="comments" id="comments" cols="30" rows="10" ngModel matInput></textarea>
+    </mat-form-field>
 
-    <button type="reset">Clear</button>
-    <button type="submit">Register</button>
+    <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="5vw">
+        <button type="reset">Clear</button>
+        <button type="submit">Register</button>
+    </div>
+
 </form>

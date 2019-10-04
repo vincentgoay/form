@@ -9,11 +9,13 @@ import { RSVP } from '../models';
 })
 export class RsvpformComponent implements OnInit {
 
+  shareable = false;
   startDate = new Date(2019, 10, 1);
 
   constructor() { }
 
   ngOnInit() {
+    this.shareable = !! navigator['share'];
   }
 
   process(form: NgForm) {
@@ -32,5 +34,9 @@ export class RsvpformComponent implements OnInit {
     };
 
     console.log(rsvp);
+  }
+
+  shareTheJoy() {
+    console.log("Share the Joy!")
   }
 }
