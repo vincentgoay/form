@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { RSVP } from '../models'
+import { RSVP } from '../models';
 
 @Component({
   selector: 'app-rsvpform',

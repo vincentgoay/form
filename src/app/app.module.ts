@@ -7,12 +7,14 @@ import { RegistrationComponent } from './components/registration.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RsvpformComponent } from './components/rsvpform.component';
 import { MaterialModule } from './material.module';
+import { SearchComponent } from './components/search.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegistrationComponent,
-    RsvpformComponent
+    RsvpformComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
